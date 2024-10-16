@@ -1,4 +1,4 @@
-package internal
+package util
 
 func GetAbsolutePath(hookPath string) error {}
 
