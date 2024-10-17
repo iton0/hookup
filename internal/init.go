@@ -7,13 +7,35 @@
 
 package internal
 
+import (
+	"fmt"
+	"os/exec"
+
+	"github.com/iton0/hookup/util"
+)
+
 func Init() {
 	// local repo folder name to hold git hooks
 	// do i want to make this customizable
 	const FOLDER = ".hookup"
 
+	var fullpath string
+
+	path := []string{"."} // Default folder location; how to change?
+
+	// TODO need to check if user provided path and update path variable
+
 	// check if there is a hookup folder and create if necessary
+	if !util.DoesDirectoryExist(path) {
+		fullpath, err = util.CreateFolder(path, FOLDER)
+	}
 
 	// update the local git core.hookPath
+	cmd := exec.Command("git", "config", "--local", "core.hooksPath", fullpath)
 
+	_, err := cmd.CombinedOutput()
+	if err != nil {
+		fmt.Println("Error:", err)
+		return
+	}
 }
