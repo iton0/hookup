@@ -1,0 +1,5 @@
+#!/bin/sh
+
+echo "Formatting Go files..."
+gofmt -w .
+git add .
