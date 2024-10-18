@@ -1,12 +1,17 @@
-package internal
+// this holds all info related to the githooks
 
-const site = "https://git-scm.com/docs/githooks"
+package git
 
-// Source: https://git-scm.com/docs/githooks
-// INFO: all currently supported hooks as of 10/18/2024
+import (
+	"errors"
+)
+
+// source: https://git-scm.com/docs/githooks
+// INFO: all supported hooks as of 10/18/2024
+//
 // key = git hook name
 // value = url section of docs
-var gitHooks = map[string]string{ // NOTE: this should be treated as a const value
+var hooks = map[string]string{ // NOTE: this should be treated as a constant
 	"applypatch-msg":        "#_applypatch_msg",
 	"pre-applypatch":        "#_pre_applypatch",
 	"post-applypatch":       "#_post_applypatch",
@@ -35,4 +40,13 @@ var gitHooks = map[string]string{ // NOTE: this should be treated as a const val
 	"p4-post-changelist":    "#_p4_post_changelist",
 	"p4-pre-submit":         "#_p4_pre_submit",
 	"post-index-change":     "#_post_index_change",
+}
+
+// Getter for git hooks
+func Hooks(key string) (string, error) {
+	value, exists := hooks[key]
+	if !exists {
+		return "", errors.New("hook not found: " + key)
+	}
+	return value, nil
 }

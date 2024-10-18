@@ -1,23 +1,18 @@
-package internal
+package logic
 
 import (
-	"errors"
 	"fmt"
 	"os/exec"
 	"runtime"
+
+	"github.com/iton0/hookup/pkg/git"
 )
 
-func gitHook(key string) (string, error) {
-	value, exists := gitHooks[key]
-	if !exists {
-		return "", errors.New("hook not found: " + key)
-	}
-	return value, nil
-}
+const site = "https://git-scm.com/docs/githooks"
 
 func OpenBrowser(key string) error {
 	var cmd *exec.Cmd
-	hook, err := gitHook(key)
+	hook, err := git.Hooks(key)
 
 	if err != nil {
 		fmt.Println(err)

@@ -5,13 +5,13 @@
 // something like 'hu init --worktree [worktree repo]'
 // they can leave blank in which the hu will look at all the available worktrees to find a .hookup folder
 
-package internal
+package logic
 
 import (
 	"fmt"
 	"os/exec"
 
-	"github.com/iton0/hookup/util"
+	"github.com/iton0/hookup/pkg/util"
 )
 
 // local repo folder name to hold git hooks
@@ -30,7 +30,9 @@ func Init() {
 
 	// check if there is a hookup folder and create if necessary
 	if !util.DoesDirectoryExist(path) {
+		var err error // is there a better way to do this
 		fullpath, err = util.CreateFolder(path, defaultFolder)
+		fmt.Println("Error:", err)
 	}
 
 	// update the local git core.hookPath
