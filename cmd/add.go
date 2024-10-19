@@ -4,6 +4,10 @@ import (
 	"github.com/spf13/cobra"
 )
 
+func init() {
+	rootCmd.AddCommand(addCmd)
+}
+
 var addCmd = &cobra.Command{
 	Use:   "init",
 	Short: "Initialize Hookup.",

@@ -2,8 +2,9 @@ package cmd
 
 import (
 	"fmt"
-	"github.com/spf13/cobra"
 	"os"
+
+	"github.com/spf13/cobra"
 )
 
 // https://github.com/spf13/cobra/blob/main/site/content/user_guide.md
@@ -12,7 +13,7 @@ var rootCmd = &cobra.Command{
 	Use:     "hu",
 	Aliases: []string{"hookup"},
 	Short:   "Hookup CLI",
-	Long:    `Hookup is a tool that allows custom git hooks management.`,
+	Long:    `Hookup is a management tool for git hooks.`,
 	Version: "0.0.1",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		if err := cmd.Help(); err != nil {
@@ -22,10 +23,7 @@ var rootCmd = &cobra.Command{
 	},
 }
 
-func init() {
-	// add commands here
-	rootCmd.AddCommand(initCmd, addCmd, removeCmd, listCmd, docCmd)
-}
+func init() {}
 
 func Execute() {
 	if err := rootCmd.Execute(); err != nil {

@@ -3,6 +3,7 @@ package util
 import (
 	"os"
 	"path/filepath"
+	"strings"
 )
 
 // Defaults to cwd if path not given
@@ -32,6 +33,13 @@ func DoesDirectoryExist(path []string) bool {
 		return false
 	}
 	return info.IsDir()
+}
+
+// SplitFilePath takes a string representation of a file path and returns a slice representation of it.
+func SplitFilePath(path string) (slice []string) {
+	slice = strings.Split(path, string(filepath.Separator))
+	return // return slice
+
 }
 
 // toPathString combines a slice of path components and an optional name into a single path string.

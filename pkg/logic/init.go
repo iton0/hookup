@@ -1,16 +1,10 @@
-// we can set a relative path to the local .hookup folder
-// ex. git config --local core.hooksPath ./.hookup
-
-// for worktree specify which worktree to look and update the hookPath to
-// something like 'hu init --worktree [worktree repo]'
-// they can leave blank in which the hu will look at all the available worktrees to find a .hookup folder
-
 package logic
 
 import (
 	"fmt"
 	"os/exec"
 
+	"github.com/iton0/hookup/cmd"
 	"github.com/iton0/hookup/pkg/util"
 )
 
@@ -21,22 +15,31 @@ const defaultFolder = ".hookup"
 var path = []string{"."}
 
 func Init() {
-	var fullpath string
+	var fullPath string
 
-	// TODO need to check if user provided path and update path variable
-	// This path with include the / character so how do i parse that if even
-	//
+	// Check for the flag arguements
+
+	// TODO: how do i properly do the worktree flag because setup may differ.
+	// The portable way is the use relative path but i need to make sure that I properly use relative
+	if cmd.Worktree != "" {
+		// Check if it is a worktree via does .git directory exist in cwd
+	}
+	// User provided custom path; update path var
+	if cmd.Path != "" {
+		path = util.SplitFilePath(cmd.Path)
+	}
+
 	// Possible design choice: provide a convention in the README for where to place the defaultFolder. Hookup will only look in those
 
 	// check if there is a hookup folder and create if necessary
 	if !util.DoesDirectoryExist(path) {
-		var err error // is there a better way to do this
-		fullpath, err = util.CreateFolder(path, defaultFolder)
+		var err error // is there a better way to do this?
+		fullPath, err = util.CreateFolder(path, defaultFolder)
 		fmt.Println("Error:", err)
 	}
 
 	// update the local git core.hookPath
-	cmd := exec.Command("git", "config", "--local", "core.hooksPath", fullpath)
+	cmd := exec.Command("git", "config", "--local", "core.hooksPath", fullPath)
 
 	_, err := cmd.CombinedOutput()
 	if err != nil {
