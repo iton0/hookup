@@ -5,12 +5,12 @@ import (
 )
 
 func init() {
-	rootCmd.AddCommand(addCmd)
+	rootCmd.AddCommand(updateCmd)
 }
 
-var addCmd = &cobra.Command{
-	Use:   "add",
-	Short: "Add git hook.",
+var updateCmd = &cobra.Command{
+	Use:   "update",
+	Short: "Update hookup config.",
 	Run: func(cmd *cobra.Command, args []string) {
 		// TODO implement logic
 	},

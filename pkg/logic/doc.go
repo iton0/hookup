@@ -8,18 +8,16 @@ import (
 	"github.com/iton0/hookup/pkg/git"
 )
 
-const site = "https://git-scm.com/docs/githooks"
-
 func OpenBrowser(key string) error {
+	const Site = "https://git-scm.com/docs/githooks"
 	var cmd *exec.Cmd
 	hook, err := git.Hooks(key)
 
 	if err != nil {
-		fmt.Println(err)
-		return nil
+		return err
 	}
 
-	url := site + hook
+	url := Site + hook
 
 	switch runtime.GOOS {
 	case "linux":

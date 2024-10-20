@@ -2,25 +2,14 @@
 No strings attached!
 Your friendly git hooks buddy!
 
-Git hooks management CLI tool
+Git hooks manager CLI tool
 
 ## Introduction
-**hookup** is a Go CLI tool that manages git hooks.
-Instead of focusing on how to add your git hooks and mantaining;
-just focus on your hooks and **hookup** will do the rest!
+Git hooks automate and implement processes in your workflow, increasing code quality and consistency.
 
-## Features
-With the CLI you can:
-- Manage git hooks on version control
-- Customize git hooks
-- Store custom git hooks as templates for future use
+However, many developers avoid git hooks due to a lack of awareness and the perceived complexity of setup, discouraging them from using this feature.
 
-This is done through five basic principals with git hooks to make management easier:
-1. Initialization
-2. Addition
-3. Removal
-4. List
-5. Documentation
+**hookup** simplifies the management of git hooks, allowing you to focus on the logic and usage of your hooks instead.
 
 ## Installation
 Instructions on how to install the tool.
@@ -28,23 +17,31 @@ Instructions on how to install the tool.
 - `git`
 - `curl` (if installing via script)
 
-## Usage
+## Usage Quickstart
+This section provides basic information to understand the core usage.
 
-This will give a basic quick start with the three most essential commands:
 > [!NOTE]
-> All of the usage can be shown running `hu --help`.
+> Run `hu --help` for full usage documentation.
 
 #### hu init
+To initialize, run `hu init` in your current directory.
+
+On the first run, it will create the **.hookup** folder and set the local **core.hooksPath** variable. If the **.hookup folder** already exists, only the path variable will be updated.
+
+The **hooksPath** variable is set as a relative path, ensuring that moving the repository to another location won’t affect the sourcing of the .hookup folder.
+
+#### hu add & hu remove
 
 
-#### hu add
-
-
-#### hu remove
+#### hu update
 
 
 ## Configuration
 Information on any configuration files or settings that users may need to know about.
+
+## Future TODOs
+[ ] make branch specific hooks possible
+[ ] store custom git hooks as templates for future use
 
 ## Contributing
 Guidelines for contributing to the project, including how to submit issues or pull requests.
