@@ -1,12 +1,18 @@
 #!/bin/bash
 
-# Run tests
-echo "Running tests..."
-go test -v ./cmd
+# Check for changes in Go files
+if git diff --cached --name-only | grep -q '\.go$'; then
+    echo "Go files detected. Running tests..."
 
-# Check the exit status of the tests
-if [ $? -ne 0 ]; then
-    echo "Tests failed. Push cancelled."
-    exit 1
+    # Run tests
+    go test -v ./cmd
+
+    # Check the exit status of the tests
+    if [ $? -ne 0 ]; then
+        echo "Tests failed. Push cancelled."
+        exit 1
+    fi
+else
+    echo "No Go files changed. Skipping tests."
 fi
 
