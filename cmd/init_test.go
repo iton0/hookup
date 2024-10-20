@@ -2,6 +2,7 @@ package cmd
 
 import (
 	"bytes"
+	"os"
 	"testing"
 )
 
@@ -17,5 +18,7 @@ func TestInitCmd(t *testing.T) {
 	err := rootCmd.Execute()
 	if err != nil {
 		t.Fatalf("Command failed: %v", err)
+	} else {
+		os.Remove("../cmd/.hookup")
 	}
 }
