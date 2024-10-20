@@ -15,7 +15,7 @@ func Init(cmd *cobra.Command, args []string) {
 
 	// check if cwd is git repo
 	if err := exec.Command("git", "-C", ".", "rev-parse", "--is-inside-work-tree").Run(); err != nil {
-		cmd.Println("Fatal: Must be run in a git repository")
+		cmd.Println("Fatal: Must run in a git repository/worktree")
 		return
 	}
 

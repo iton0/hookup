@@ -1,7 +1,7 @@
 package cmd
 
 import (
-	"github.com/iton0/hookup/pkg/logic"
+	// "github.com/iton0/hookup/pkg/logic"
 	"github.com/spf13/cobra"
 )
 

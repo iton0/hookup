@@ -12,7 +12,7 @@ import (
 var (
 	rootCmd = &cobra.Command{
 		// TODO check docs about this
-		Use:     "hu",
+		Use:     "hu [COMMAND]",
 		Aliases: []string{"hookup"},
 		Short:   "Hookup CLI",
 		Long:    `Hookup is a management tool for git hooks.`,
@@ -22,7 +22,11 @@ var (
 				return err
 			}
 
-			// TODO: create logic for flags
+			if Doc != "" {
+				if err := logic.OpenBrowser(Doc); err != nil {
+					return err
+				}
+			}
 
 			return nil
 		},
