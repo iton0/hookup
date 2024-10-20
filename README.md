@@ -43,6 +43,7 @@ Information on any configuration files or settings that users may need to know a
 - [ ] branch specific hooks
 - [ ] store custom git hooks as templates for future use
 - [ ] functionality to save custom setups (ie gitdir and workdir are not in same location)
+- [ ] github actions maybe
 
 ## Contributing
 Guidelines for contributing to the project, including how to submit issues or pull requests.
