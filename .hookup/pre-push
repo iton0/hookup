@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# Run tests
+echo "Running tests..."
+go test -v ./cmd
+
+# Check the exit status of the tests
+if [ $? -ne 0 ]; then
+    echo "Tests failed. Push cancelled."
+    exit 1
+fi
+
