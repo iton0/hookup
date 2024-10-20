@@ -5,7 +5,7 @@ import (
 	"os/exec"
 	"runtime"
 
-	"github.com/iton0/hookup/pkg/git"
+	"github.com/iton0/hookup/internal/git"
 )
 
 func OpenBrowser(key string) error {

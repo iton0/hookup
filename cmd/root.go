@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/iton0/hookup/pkg/logic"
+	"github.com/iton0/hookup/internal/logic"
 	"github.com/spf13/cobra"
 )
 

@@ -3,7 +3,7 @@ package logic
 import (
 	"os/exec"
 
-	"github.com/iton0/hookup/pkg/util"
+	"github.com/iton0/hookup/internal/util"
 	"github.com/spf13/cobra"
 )
 
