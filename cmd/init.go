@@ -1,3 +1,4 @@
+// INFO: use this command as the basic structure for other commands after finishing
 package cmd
 
 import (
@@ -10,17 +11,10 @@ var (
 		// TODO check docs about argument restrictions and all dat
 		Use:   "init",
 		Short: "Initialize Hookup.",
-		Run: func(cmd *cobra.Command, args []string) {
-			logic.Init(Path)
-
-		},
+		Run:   logic.Init,
 	}
-
-	// flags
-	Path string
 )
 
 func init() {
-	initCmd.Flags().StringVarP(&Path, "path", "p", "", "Specify path to initialize hookup folder")
 	rootCmd.AddCommand(initCmd)
 }

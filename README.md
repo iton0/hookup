@@ -40,8 +40,9 @@ The **hooksPath** variable is set as a relative path, ensuring that moving the r
 Information on any configuration files or settings that users may need to know about.
 
 ## Future TODOs
-[ ] make branch specific hooks possible
-[ ] store custom git hooks as templates for future use
+- [ ] branch specific hooks
+- [ ] store custom git hooks as templates for future use
+- [ ] functionality to save custom setups (ie gitdir and workdir are not in same location)
 
 ## Contributing
 Guidelines for contributing to the project, including how to submit issues or pull requests.
