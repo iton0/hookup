@@ -4,7 +4,7 @@
 echo "Checking for modified Go files..."
 
 # Store the output of the git command in a variable
-modified_go_files=$(git diff --cached --name-only HEAD^ HEAD)
+modified_go_files=$(git diff --name-only HEAD^ HEAD)
 
 # Debug: Show modified files
 echo "Modified files: $modified_go_files"
