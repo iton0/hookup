@@ -1,19 +1,26 @@
 #!/bin/bash
 
-# Check for changes in Go files
-if git diff --cached --name-only | grep -q '\.go$'; then
+# Check for modified Go files in the staged changes
+echo "Checking for modified Go files..."
+
+# Store the output of the git command in a variable
+modified_go_files=$(git diff --cached --name-only)
+
+# Debug: Show modified files
+echo "Modified files: $modified_go_files"
+
+# Check if there are any Go files in the modified files
+if echo "$modified_go_files" | grep -q '\.go$'; then
     echo "Go files detected. Running tests..."
 
     # Run tests
-    go test -v ./cmd
-    echo ""
-
-    # Check the exit status of the tests
-    if [ $? -ne 0 ]; then
+    if go test -v ./cmd; then
+        echo "Tests passed."
+    else
         echo "Tests failed. Push cancelled."
         exit 1
     fi
 else
-    echo -e  "No Go files changed. Skipping tests.\n"
+    echo -e "No Go files changed. Skipping tests.\n"
 fi
 
