@@ -9,6 +9,7 @@ if git diff --cached --name-only | grep -q '\.go$'; then
     # Add formatted files to the staging area
     git add .
 else
-    echo -e "No Go files changed. Skipping formatting.\n"
+    echo "No Go files changed. Skipping formatting."
+    echo ""
 fi
 
