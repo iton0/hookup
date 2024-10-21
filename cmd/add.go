@@ -1,6 +1,7 @@
 package cmd
 
 import (
+	"github.com/iton0/hookup/internal/logic"
 	"github.com/spf13/cobra"
 )
 
@@ -11,7 +12,5 @@ func init() {
 var addCmd = &cobra.Command{
 	Use:   "add",
 	Short: "Add git hook.",
-	Run: func(cmd *cobra.Command, args []string) {
-		// TODO implement logic
-	},
+	Run:   logic.Add,
 }

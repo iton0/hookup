@@ -5,10 +5,15 @@ import (
 	"github.com/spf13/cobra"
 )
 
+func init() {
+	rootCmd.AddCommand(listCmd)
+}
+
 var (
 	listCmd = &cobra.Command{
-		Use:   "list",
-		Short: "list git hooks.",
+		Use:     "list",
+		Aliases: []string{"ls"},
+		Short:   "list git hooks.",
 		Run: func(cmd *cobra.Command, args []string) {
 
 		},
@@ -16,7 +21,3 @@ var (
 
 	// flags
 )
-
-func init() {
-	rootCmd.AddCommand(listCmd)
-}

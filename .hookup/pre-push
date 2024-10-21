@@ -6,6 +6,7 @@ if git diff --cached --name-only | grep -q '\.go$'; then
 
     # Run tests
     go test -v ./cmd
+    echo ""
 
     # Check the exit status of the tests
     if [ $? -ne 0 ]; then
@@ -13,6 +14,6 @@ if git diff --cached --name-only | grep -q '\.go$'; then
         exit 1
     fi
 else
-    echo "No Go files changed. Skipping tests."
+    echo -e  "No Go files changed. Skipping tests.\n"
 fi
 

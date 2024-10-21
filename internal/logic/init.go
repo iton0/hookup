@@ -7,11 +7,11 @@ import (
 	"github.com/spf13/cobra"
 )
 
+// local repo folder name to hold git hooks via relative path
+const FullPath = "./.hookup"
+
 func Init(cmd *cobra.Command, args []string) {
 	cmd.Println("Initializing hookup...")
-
-	// local repo folder name to hold git hooks via relative path
-	const FullPath = "./.hookup"
 
 	// check if cwd is git repo
 	if err := exec.Command("git", "-C", ".", "rev-parse", "--is-inside-work-tree").Run(); err != nil {

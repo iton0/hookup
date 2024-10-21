@@ -1,6 +1,5 @@
 # hookup
-No strings attached!
-Your friendly git hooks buddy!
+Your CLI with benefits!
 
 Git hooks manager CLI tool
 
@@ -12,13 +11,12 @@ However, many developers avoid git hooks due to a lack of awareness and the perc
 **hookup** simplifies the management of git hooks, allowing you to focus on the logic and usage of your hooks instead.
 
 ## Installation
-Instructions on how to install the tool.
 #### External Dependencies
 - `git`
 - `curl` (if installing via script)
 
 ## Usage Quickstart
-This section provides basic information to understand the core usage.
+This section provides basic information to understand the core usage. *The preferred way of running hookup is with the **hu** root command*. However, **hookup** can also be used; whichever floats your boat!
 
 > [!NOTE]
 > Run `hu --help` for full usage documentation.
@@ -28,7 +26,7 @@ To initialize, run `hu init` in your current directory.
 
 On the first run, it will create the **.hookup** folder and set the local **core.hooksPath** variable. If the **.hookup folder** already exists, only the path variable will be updated.
 
-The **hooksPath** variable is set as a relative path, ensuring that moving the repository to another location won’t affect the sourcing of the .hookup folder.
+The **hooksPath** variable is set as a relative path, ensuring that moving the repository to another location in the filesystem won’t affect the sourcing of the .hookup folder.
 
 #### hu add & hu remove
 

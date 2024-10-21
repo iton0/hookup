@@ -8,6 +8,10 @@ import (
 	"github.com/spf13/cobra"
 )
 
+func init() {
+	rootCmd.Flags().StringVar(&Doc, "doc", "", "Documentation for specified git hook")
+}
+
 // https://github.com/spf13/cobra/blob/main/site/content/user_guide.md
 var (
 	rootCmd = &cobra.Command{
@@ -35,10 +39,6 @@ var (
 	// flags
 	Doc string
 )
-
-func init() {
-	rootCmd.Flags().StringVar(&Doc, "doc", "", "Documentation for specified git hook")
-}
 
 func Execute() {
 	if err := rootCmd.Execute(); err != nil {

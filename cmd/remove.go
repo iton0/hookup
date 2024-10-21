@@ -9,8 +9,9 @@ func init() {
 }
 
 var removeCmd = &cobra.Command{
-	Use:   "remove",
-	Short: "remove hook.",
+	Use:     "rm",
+	Aliases: []string{"remove"},
+	Short:   "remove hook.",
 	Run: func(cmd *cobra.Command, args []string) {
 		// TODO implement logic
 	},
